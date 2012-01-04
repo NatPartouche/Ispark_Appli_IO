@@ -15,23 +15,20 @@ if ([super init])
 {
     park=[[NSMutableArray alloc]init];
     currentElement=[[NSMutableString alloc]init];
+    
+    //[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK/API_ISPARK/"];
+
 }
     return self;
 }
 
 -(void)load:(NSString*)arg
 {
-    /*
-     News=[[NSMutableArray alloc]init];
-    currentElement=[[NSMutableString alloc]init];
-    [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@/ECE/News.xml",racine]];
-     */
+    localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK/API_ISPARK/" ];
+
     park=[[NSMutableArray alloc]init];
-
-    NSString *localhost=[NSString stringWithString:@"http://localhost/"];
-    NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/Action/ActionPark.php?Action=",localhost,arg];
-
-    
+    NSLog(@"%@",localhost);
+    NSString *racine=[NSString stringWithFormat:@"%@Action/ActionPark.php?Action=",localhost];
     NSLog(@"%@%@",racine,arg);
     [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@%@",racine,arg]];
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
@@ -73,17 +70,16 @@ if ([super init])
 
 -(void)loadpicturesNews
 {
+    //http://natanelpartouche.com/API_ISPARK/API_ISPARK/images/test.png
     
-    
-    NSString *localhost=[NSString stringWithString:@"http://localhost/"];
-    NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/images/",localhost];
+    NSLog(@"%@",[park description]);
+    NSString *racine=[NSString stringWithFormat:@"%@images",localhost];
     NSMutableArray *tempoarray=[[NSMutableArray alloc]init];
     
     for (int i=0; i<[park count]; i++) {
-        NSMutableDictionary *tempdico=[[NSMutableDictionary alloc]init];
-        tempdico=[park objectAtIndex:i];
-        
-        NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",racine,[dico objectForKey:@"logo"]]];
+        NSMutableDictionary *tempdico=[park objectAtIndex:i];
+        NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",racine,[tempdico objectForKey:@"logo"]]];
+        NSLog(@"racine : %@",url);
         NSMutableData *data=[NSData dataWithContentsOfURL:url];
         [tempdico setObject:data forKey:@"logo_image"];
         [tempoarray addObject:tempdico];

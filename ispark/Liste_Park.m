@@ -29,17 +29,23 @@
 }
 
 #pragma mark - View lifecycle
-
+#include "_Utillisateur.h"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.tableView.rowHeight=63;
+    NSLog(@"Enter bis");
+    
+    
+    _Utillisateur *u=[[_Utillisateur alloc]init];
+    NSMutableDictionary *temp=[u charge];
+    if ([temp isEqualToDictionary:nil])
+    {
+        NSLog(@"NUll");
+    }
     park=[[_Park alloc]init];
      [park load:@"all"];
     [park loadpicturesNews];
-    NSLog(@"%d",[[park park]count]);
-    NSLog(@"%@",[park park]);
     [self.tableView reloadData];
      // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -116,7 +122,7 @@
         
     }  
     NSMutableDictionary *temp=[[park park]objectAtIndex:indexPath.row];
- 
+
     cell.logo.image=[UIImage imageWithData:[temp objectForKey:@"logo_image"]];
     cell.nom.text=[temp objectForKey:@"nomparking"];
     cell.lieu.text=[temp objectForKey:@"adresse"];

@@ -30,7 +30,7 @@
     
     
     
-    
+    NSLog(@"Enter");
     
     
     Liste_Park *list=[[Liste_Park alloc]init];

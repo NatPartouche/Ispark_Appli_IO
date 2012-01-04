@@ -22,6 +22,7 @@
     NSMutableDictionary *dicotemp;
 
     IBOutlet UILabel *Nom;
+    IBOutlet UIActivityIndicatorView *acti;
     IBOutlet UILabel *Adresse;
     IBOutlet UIButton *Telephone;
     IBOutlet UIPickerView *picker_temp_reservation;

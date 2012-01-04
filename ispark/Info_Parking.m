@@ -42,12 +42,18 @@
 
 -(void)get_place{
 
- 
-    dicoarray=[[NSMutableArray alloc]init];
+    if ([acti isAnimating])
+    {
+        [acti stopAnimating];
+        [acti setHidden:YES];
+    }
+    else
+    {
+     dicoarray=[[NSMutableArray alloc]init];
     dicotemp=[[NSMutableDictionary alloc]init];
     
-    NSString *localhost=[NSString stringWithString:@"http://localhost/"];
-    [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@API_ISPARK/Action/ActionParking.php?Action=infozone&id=%@",localhost,[dico objectForKey:@"idparking"]]];
+    NSString *localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK/API_ISPARK/" ];
+    [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@Action/ActionParking.php?Action=infozone&id=%@",localhost,[dico objectForKey:@"idparking"]]];
     NSLog(@"dicoarray  : %@",[dicoarray description]);
     
     
@@ -56,7 +62,9 @@
     NSString *zonenonreservable=[dicotemp objectForKey:@"zonenonreservable"];
     NSString *zonereservable=[dicotemp objectForKey:@"zonereservable"];
 
-    current_nbr.text=[NSString stringWithFormat:@"VIP : %@/%@ \nClassique : %@/%@",nbrplacereservable,nombreplacedisponible,zonenonreservable,zonereservable];
+        current_nbr.text=[NSString stringWithFormat:@"VIP : %@/%@ \nClassique : %@/%@",nbrplacereservable,nombreplacedisponible,zonenonreservable,zonereservable];
+    
+    }
     
 }
 #pragma mark - Application's Documents directory
@@ -110,12 +118,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [acti startAnimating];
     timer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(get_place) userInfo:nil repeats:YES];
     
     NSLog(@"hello");
     
-      logoimage.image=[UIImage imageWithData:[dico objectForKey:@"logo_image"]];
     picker_temp_reservation.hidden=YES;
     
     NSLog(@"test");
@@ -137,6 +144,7 @@
     
     // Do any additional setup after loading the view from its nib.
     textview.text=[dico description];
+    logoimage.image=[UIImage imageWithData:[dico objectForKey:@"logo_image"]];
     Nom.text=[dico objectForKey:@"nomparking"];
     Adresse.text=[dico objectForKey:@"adresse"];
     Telephone.titleLabel.text=[dico objectForKey:@"telephone"];
@@ -160,6 +168,8 @@
     current_nbr = nil;
     [current_nbr release];
     current_nbr = nil;
+    [acti release];
+    acti = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -242,6 +252,7 @@
     [logoimage release];
     [current_nbr release];
     [current_nbr release];
+    [acti release];
     [super dealloc];
 }
 @end

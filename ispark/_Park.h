@@ -13,7 +13,7 @@
     NSMutableArray *park;
     NSMutableString *currentElement;
     NSMutableString *nbrplace;
-
+    NSString *localhost;
     NSMutableDictionary *dico;
     NSXMLParser *rssparser;
     //Temp
