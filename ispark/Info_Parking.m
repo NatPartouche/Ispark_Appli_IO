@@ -111,6 +111,9 @@
 {
     [super viewDidLoad];
     
+    
+    self.title=@"parkings";
+
     timer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(get_place) userInfo:nil repeats:YES];
     
     NSLog(@"hello");

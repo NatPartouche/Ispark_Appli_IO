@@ -78,6 +78,7 @@
     [super viewDidLoad];
     
     
+    self.title=@"Trouver un parking";
     
     
     

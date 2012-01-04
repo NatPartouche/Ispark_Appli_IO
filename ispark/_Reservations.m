@@ -7,7 +7,6 @@
 //
 
 #import "_Reservations.h"
-
 @implementation _Reservations
 
 
@@ -34,6 +33,7 @@
     [self parseXMLFileAtURL:racine];
     if (dico)
     {
+        NSLog(@"Dico ope");
         return true;
     }
     else
@@ -105,8 +105,10 @@
 -(void)loadQrcode
 {
     
-    NSString *localhost=[NSString stringWithString:@"http://localhost/"];
-
+    
+   
+    NSString *localhost=[NSString stringWithString:@"http://natanelpartouche.com/"];
+   
      NSString *string=[NSString stringWithFormat:@"%@API_ISPARK/Reservations/%@",localhost,[dico objectForKey:@"logocode"]];
     
      string=[string stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -114,7 +116,7 @@
      NSURL *url=[NSURL URLWithString:string];
      NSData *datalogo=[NSData dataWithContentsOfURL:url];
      [dico setObject:datalogo forKey:@"Qrcode"];
-   
+
 }
 
 

@@ -27,12 +27,12 @@ if ([super init])
     [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@/ECE/News.xml",racine]];
      */
     park=[[NSMutableArray alloc]init];
-
-    NSString *localhost=[NSString stringWithString:@"http://localhost/"];
+    
+    NSString *localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
     NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/Action/ActionPark.php?Action=",localhost,arg];
 
     
-    NSLog(@"%@%@",racine,arg);
+    NSLog(@"racine : %@%@",racine,arg);
     [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@%@",racine,arg]];
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
     [pref setObject:park forKey:@"park"];
@@ -75,7 +75,7 @@ if ([super init])
 {
     
     
-    NSString *localhost=[NSString stringWithString:@"http://localhost/"];
+    NSString *localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
     NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/images/",localhost];
     NSMutableArray *tempoarray=[[NSMutableArray alloc]init];
     

@@ -37,9 +37,9 @@
     self.tableView.rowHeight=63;
     park=[[_Park alloc]init];
      [park load:@"all"];
+    NSLog(@"cha");
     [park loadpicturesNews];
-    NSLog(@"%d",[[park park]count]);
-    NSLog(@"%@",[park park]);
+  
     [self.tableView reloadData];
      // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
