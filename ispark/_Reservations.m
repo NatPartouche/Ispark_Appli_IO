@@ -27,8 +27,9 @@
 {
     
     reservation=[[NSMutableArray alloc]init];
+    localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
 
-    NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/Action/ActionReservation.php?Action=annuler&idreservation=%@",localhost,idr];
+    NSString *racine=[NSString stringWithFormat:@"%@/API_ISPARK/Action/ActionReservation.php?Action=annuler&idreservation=%@",localhost,idr];
     NSLog(@"%@",racine);
     
     [self parseXMLFileAtURL:racine];
@@ -54,7 +55,8 @@
     
     dateString = [formatter stringFromDate:[NSDate date]];
     
-    
+    localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
+
     NSString *racine=[NSString stringWithFormat:@"%@/API_ISPARK/Action/ActionReservation.php?Action=faire&idParking=%@&temps=%@&datedebut=%@&idUtilisateur=%@",localhost,idp,temps,dateString,user];
     [self parseXMLFileAtURL:racine];
 }
@@ -104,9 +106,10 @@
 
 -(void)loadQrcode
 {
+    localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
+
     
-    
-     NSString *string=[NSString stringWithFormat:@"%@API_ISPARK/Reservations/%@",localhost,[dico objectForKey:@"logocode"]];
+     NSString *string=[NSString stringWithFormat:@"%@/API_ISPARK/Reservations/%@",localhost,[dico objectForKey:@"logocode"]];
     
      string=[string stringByReplacingOccurrencesOfString:@" " withString:@""];
      NSLog(@"url : %@",string);

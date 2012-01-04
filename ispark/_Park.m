@@ -25,7 +25,9 @@ if ([super init])
 {
   
     park=[[NSMutableArray alloc]init];
-    NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/Action/ActionPark.php?Action=",localhost,arg];
+    localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
+
+    NSString *racine=[NSString stringWithFormat:@"%@/API_ISPARK/Action/ActionPark.php?Action=",localhost,arg];
     NSLog(@"racine : %@%@",racine,arg);
     [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@%@",racine,arg]];
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
@@ -70,8 +72,9 @@ if ([super init])
 -(void)loadpicturesNews
 {
     
-    
-    NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/images/",localhost];
+    localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
+
+    NSString *racine=[NSString stringWithFormat:@"%@/API_ISPARK/images/",localhost];
     NSMutableArray *tempoarray=[[NSMutableArray alloc]init];
     
     for (int i=0; i<[park count]; i++) {
@@ -79,6 +82,9 @@ if ([super init])
         tempdico=[park objectAtIndex:i];
         
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",racine,[dico objectForKey:@"logo"]]];
+        
+        NSLog(@"%@",url);
+
         NSMutableData *data=[NSData dataWithContentsOfURL:url];
         [tempdico setObject:data forKey:@"logo_image"];
         [tempoarray addObject:tempdico];

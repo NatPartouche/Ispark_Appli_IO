@@ -79,8 +79,7 @@
     
     
     self.title=@"Trouver un parking";
-    
-    
+
     
     
     // Initialisation classique d'une View
