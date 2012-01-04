@@ -54,7 +54,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-  
+    self.title=@"Reservations";
+
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
     reservation=[pref objectForKey:@"Reservations"];
     

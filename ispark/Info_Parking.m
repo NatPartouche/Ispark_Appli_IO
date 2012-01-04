@@ -62,6 +62,21 @@
     NSString *zonenonreservable=[dicotemp objectForKey:@"zonenonreservable"];
     NSString *zonereservable=[dicotemp objectForKey:@"zonereservable"];
 
+        
+        int nbrplacereservable_int=[nbrplacereservable intValue];
+        int nombreplacedisponible_int=[nombreplacedisponible intValue];
+        
+        NSLog(@"%d/%d",nbrplacereservable_int,nombreplacedisponible_int);
+        
+        if (nbrplacereservable_int==nombreplacedisponible_int)
+        {
+            indisponible.hidden=NO;
+        }
+        else
+        {
+            indisponible.hidden=YES;
+        }
+        
         current_nbr.text=[NSString stringWithFormat:@"VIP : %@/%@ \nClassique : %@/%@",nbrplacereservable,nombreplacedisponible,zonenonreservable,zonereservable];
     
     }
@@ -119,7 +134,11 @@
 {
     [super viewDidLoad];
     [acti startAnimating];
+    
+    self.title=@"Info Parking";
     timer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(get_place) userInfo:nil repeats:YES];
+    
+    
     
     NSLog(@"hello");
     
@@ -170,6 +189,8 @@
     current_nbr = nil;
     [acti release];
     acti = nil;
+    [indisponible release];
+    indisponible = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -253,6 +274,7 @@
     [current_nbr release];
     [current_nbr release];
     [acti release];
+    [indisponible release];
     [super dealloc];
 }
 @end

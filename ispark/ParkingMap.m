@@ -37,6 +37,7 @@
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
     NSMutableArray *park = [pref objectForKey:@"park"];
     
+    NSLog(@"%@",[park description]);
     
     allAnnotationsArray=[[NSMutableArray alloc]init ];
     NSLog(@"%@",allAnnotationsArray);
@@ -77,8 +78,7 @@
 {
     [super viewDidLoad];
     
-    
-    
+
     
     
     

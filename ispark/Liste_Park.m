@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     self.tableView.rowHeight=63;
-    NSLog(@"Enter bis");
+    self.title=@"Parkings";
     
     Login *l=[[Login alloc]init];
     [self presentModalViewController:l animated:YES];

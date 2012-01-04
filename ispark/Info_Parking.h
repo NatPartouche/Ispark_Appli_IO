@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @interface Info_Parking : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate,NSXMLParserDelegate>
 {
+    IBOutlet UILabel *indisponible;
     NSTimer * timer;
     BOOL timeron;
     NSXMLParser *rssparser;
