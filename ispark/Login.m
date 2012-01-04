@@ -11,7 +11,6 @@
 @implementation Login
 @synthesize mail;
 @synthesize motdepasse;
-@synthesize login;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,15 +40,20 @@
 #include "_Utillisateur.h"
 - (IBAction)login:(id)sender {
     
-    [self performSelectorInBackground:@selector(login) withObject:nil];
+    [self loginme];
 }
 
--(void)login
-{
+-(void)loginme
+{  
+    
     _Utillisateur *u=[[_Utillisateur alloc]init];
     [u load:mail.text and:motdepasse.text];
     [u save];
-    
+    if ([u isuser]==1)
+    {
+        [self dismissModalViewControllerAnimated:YES];
+    }
+  
 }
 - (void)viewDidUnload
 {

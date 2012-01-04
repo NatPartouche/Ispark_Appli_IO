@@ -13,7 +13,7 @@
 {
     if ([super init])
     {
-      
+        isuser=0;
     }
     return self;
 }
@@ -36,6 +36,7 @@
     if ([currentElement isEqualToString:@"Utilisateur"]) {
         NSLog(@"%@",[attributeDict description]);
         dico_user=[[NSMutableDictionary alloc]initWithDictionary:attributeDict]; 
+        isuser=1;
     }
 }
 
@@ -64,11 +65,16 @@
     [pref synchronize];
 }
 
--(NSMutableDictionary *)charge
+-(int)isuser
+{
+    return isuser;
+}
+-(NSMutableDictionary*)charge
 {
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
     dico_user=[pref objectForKey:@"dico_user"];
     [pref synchronize];
     return dico_user;
 }
+
 @end

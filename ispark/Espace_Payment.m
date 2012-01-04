@@ -38,11 +38,15 @@
     [self chargerlareservation];
 }
 #include "_Reservations.h"
+#include "_Utillisateur.h"
 -(void)chargerlareservation
 {
-    _Reservations *res=[[_Reservations alloc]init];
-    [res load:[dico objectForKey:@"idparking"] withtime:[NSString stringWithFormat:@"%d",temp] anduser:@"idUSER"];
     
+    _Utillisateur *u=[[_Utillisateur alloc]init];
+    NSMutableDictionary *tempo=[u charge];
+    NSLog(@"%@",[tempo description]);
+    _Reservations *res=[[_Reservations alloc]init];
+    [res load:[dico objectForKey:@"idparking"] withtime:[NSString stringWithFormat:@"%d",temp] anduser:[NSString stringWithFormat:[tempo objectForKey:@"idutilisateur"]]];
     [res loadQrcode];
     [res save];
     self.tabBarController.selectedIndex=1;

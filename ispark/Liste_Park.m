@@ -30,19 +30,15 @@
 
 #pragma mark - View lifecycle
 #include "_Utillisateur.h"
+#include "Login.h"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.tableView.rowHeight=63;
     NSLog(@"Enter bis");
     
-    
-    _Utillisateur *u=[[_Utillisateur alloc]init];
-    NSMutableDictionary *temp=[u charge];
-    if ([temp isEqualToDictionary:nil])
-    {
-        NSLog(@"NUll");
-    }
+    Login *l=[[Login alloc]init];
+    [self presentModalViewController:l animated:YES];
     park=[[_Park alloc]init];
      [park load:@"all"];
     [park loadpicturesNews];

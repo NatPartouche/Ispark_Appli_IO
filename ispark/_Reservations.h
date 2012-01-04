@@ -13,7 +13,7 @@
     NSMutableArray *reservation,*annuler;
     NSXMLParser *rssparser;
     NSMutableDictionary *dico;
-
+    NSString *localhost;
 }
 -(void)setIDparking:(NSString *)idparking;
 -(void)parseXMLFileAtURL:(NSString *)URL;

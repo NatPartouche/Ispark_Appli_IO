@@ -12,5 +12,5 @@
 @property (retain, nonatomic) IBOutlet UITextField *mail;
 @property (retain, nonatomic) IBOutlet UITextField *motdepasse;
 - (IBAction)login:(id)sender;
--(void)login;
+-(void)loginme;
 @end

@@ -15,11 +15,13 @@
     NSXMLParser *rssparser;
     NSMutableString *currentElement;
     NSMutableDictionary *dico_user;
+    int isuser;
 }
 
 -(void)parseXMLFileAtURL:(NSString *)URL;
 -(void)load:(NSString*)mail and:(NSString*)mdp;
 -(void)save;
--(NSMutableDictionary *)charge;
+-(NSMutableDictionary*)charge;
+-(int)isuser;
 
 @end
