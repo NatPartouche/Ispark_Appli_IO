@@ -21,18 +21,11 @@ if ([super init])
 
 -(void)load:(NSString*)arg
 {
-    /*
-     News=[[NSMutableArray alloc]init];
-    currentElement=[[NSMutableString alloc]init];
-    [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@/ECE/News.xml",racine]];
-     */
+  
     park=[[NSMutableArray alloc]init];
-    
     NSString *localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
     NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/Action/ActionPark.php?Action=",localhost,arg];
-
-    
-    NSLog(@"racine : %@%@",racine,arg);
+  NSLog(@"racine : %@%@",racine,arg);
     [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@%@",racine,arg]];
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
     [pref setObject:park forKey:@"park"];
