@@ -16,8 +16,7 @@
 
     NSMutableDictionary *dico;
     NSXMLParser *rssparser;
-    //Temp
-
+    NSString *localhost;
 }
 @property(nonatomic,retain)  NSMutableArray *park;
 -(void)parseXMLFileAtURL:(NSString *)URL;

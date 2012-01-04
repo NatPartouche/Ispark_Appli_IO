@@ -15,6 +15,8 @@ if ([super init])
 {
     park=[[NSMutableArray alloc]init];
     currentElement=[[NSMutableString alloc]init];
+    localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
+
 }
     return self;
 }
@@ -23,12 +25,13 @@ if ([super init])
 {
   
     park=[[NSMutableArray alloc]init];
-    NSString *localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
     NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/Action/ActionPark.php?Action=",localhost,arg];
-  NSLog(@"racine : %@%@",racine,arg);
+    NSLog(@"racine : %@%@",racine,arg);
     [self parseXMLFileAtURL:[NSString stringWithFormat:@"%@%@",racine,arg]];
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
     [pref setObject:park forKey:@"park"];
+    [localhost release];
+    [racine release];
 }
 
 -(void)parseXMLFileAtURL:(NSString *)URL
@@ -68,7 +71,6 @@ if ([super init])
 {
     
     
-    NSString *localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
     NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/images/",localhost];
     NSMutableArray *tempoarray=[[NSMutableArray alloc]init];
     
