@@ -16,6 +16,8 @@
     {
         reservation=[[NSMutableArray alloc]init];
         currentElement=[[NSMutableString alloc]init];
+        localhost=[NSString stringWithString:@"http://natanelpartouche.com/API_ISPARK"];
+
     }
     return self;
 }
@@ -26,7 +28,6 @@
     
     reservation=[[NSMutableArray alloc]init];
 
-    NSString *localhost=[NSString stringWithString:@"http://localhost/"];
     NSString *racine=[NSString stringWithFormat:@"%@API_ISPARK/Action/ActionReservation.php?Action=annuler&idreservation=%@",localhost,idr];
     NSLog(@"%@",racine);
     
@@ -54,7 +55,6 @@
     dateString = [formatter stringFromDate:[NSDate date]];
     
     
-    NSString *localhost=[NSString stringWithString:@"http://localhost/"];
     NSString *racine=[NSString stringWithFormat:@"%@/API_ISPARK/Action/ActionReservation.php?Action=faire&idParking=%@&temps=%@&datedebut=%@&idUtilisateur=%@",localhost,idp,temps,dateString,user];
     [self parseXMLFileAtURL:racine];
 }
@@ -106,9 +106,6 @@
 {
     
     
-   
-    NSString *localhost=[NSString stringWithString:@"http://natanelpartouche.com/"];
-   
      NSString *string=[NSString stringWithFormat:@"%@API_ISPARK/Reservations/%@",localhost,[dico objectForKey:@"logocode"]];
     
      string=[string stringByReplacingOccurrencesOfString:@" " withString:@""];
