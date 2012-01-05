@@ -77,7 +77,7 @@
             indisponible.hidden=YES;
         }
         
-        current_nbr.text=[NSString stringWithFormat:@"VIP : %@/%@ \nClassique : %@/%@",nbrplacereservable,nombreplacedisponible,zonenonreservable,zonereservable];
+        current_nbr.text=[NSString stringWithFormat:@"VIP : %@/%@ \nClassique : %@/%@",zonereservable,nbrplacereservable,zonenonreservable,nombreplacedisponible];
     
     }
     
@@ -129,7 +129,37 @@
     NSLog(@"parseError");
 }
 
+#include "_Reservations.h"
+#include "_Utillisateur.h"
+-(void)chargerlareservation
+{
+    
+    _Utillisateur *u=[[_Utillisateur alloc]init];
+    NSMutableDictionary *tempo=[u charge];
+    NSLog(@"%@",[tempo description]);
+    _Reservations *res=[[_Reservations alloc]init];
+    [res load:[dico objectForKey:@"idparking"] withtime:[NSString stringWithFormat:@"%d",@"07/04/2012"] anduser:[NSString stringWithFormat:[tempo objectForKey:@"idutilisateur"]]];
+    if ([res isok]==1)
+    {
+        self.tabBarController.selectedIndex=1;
+        [res loadQrcode];
+        [res save];
+    }
+    else
+    {   
+        NSString *title=[NSString stringWithString:@"Reservation Impossible"];
+        NSString *message=[NSString stringWithFormat:@"La zone VIP du parking de %@ est momentanement indisponible, Reservez votre place dans un autre parking... A très bientôt!"];
+        UIAlertView *a=[[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [a show];
+        [a release];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+-(void)rightfunction
+{  
+    [self chargerlareservation];
 
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -137,13 +167,16 @@
     
     self.title=@"Info Parking";
     timer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(get_place) userInfo:nil repeats:YES];
-    self.navigationController.navigationBar.barStyle=UIBarStyleBlack;    
     
-    NSLog(@"hello");
+    
+    self.navigationController.navigationBar.barStyle=UIBarStyleBlack;  
+    
+    right=[[UIBarButtonItem alloc]initWithTitle:@"Payer" style:UIBarButtonItemStyleDone target:self action:@selector(rightfunction)];
+    
+    self.navigationItem.rightBarButtonItem=right;
     
     picker_temp_reservation.hidden=YES;
     
-    NSLog(@"test");
     tab_temp_reservation=[[NSMutableArray alloc]init];
     
     for (int i=0; i<6; i++) {
@@ -205,6 +238,7 @@
     
     picker_temp_reservation.hidden=NO;
     
+    
 }
 
 
@@ -228,6 +262,9 @@
 }
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
+    
+    self.navigationController.navigationBar.hidden=NO;
+
     NSLog(@"Selected Color: %@. Index of selected color: %i", [tab_temp_reservation objectAtIndex:row], row);
 
     NSString *title=@"Votre reservation";
@@ -238,7 +275,6 @@
     [alert release];
     
 }
-#import "Espace_Payment.h"
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
@@ -247,10 +283,7 @@
 	{
 		NSLog(@"oui  was selected.");
         
-        Espace_Payment *e=[[Espace_Payment alloc]init];
-        [e setdico:dico];
-        [e settemp:current_temps];
-        [self.navigationController pushViewController:e animated:YES];
+        self.navigationController.navigationBar.hidden=YES;
 	}
 	else if([title isEqualToString:@"non"])
 	{

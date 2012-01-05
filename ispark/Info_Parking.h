@@ -21,7 +21,7 @@
     IBOutlet UITextView *textview;
     NSMutableDictionary *dico;
     NSMutableDictionary *dicotemp;
-
+    UIBarButtonItem* right;
     IBOutlet UILabel *Nom;
     IBOutlet UIActivityIndicatorView *acti;
     IBOutlet UILabel *Adresse;
@@ -31,6 +31,8 @@
     
 }
 -(void)get_place;
+-(void)rightfunction;
+-(void)chargerlareservation;
 
 -(void)parseXMLFileAtURL:(NSString *)URL;
 -(void)methode_get_place;

@@ -68,8 +68,6 @@
 		EEA22EB315252E6400B1FDA1 /* CellReservation.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA22EB215252E6400B1FDA1 /* CellReservation.xib */; };
 		EEA22EB915253E9000B1FDA1 /* CellParking.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA22EB815253E9000B1FDA1 /* CellParking.xib */; };
 		EEA22EBC15253EA400B1FDA1 /* CellParking.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA22EBB15253EA300B1FDA1 /* CellParking.m */; };
-		EEA9C348151B9F6B0065BD44 /* Espace_Payment.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA9C346151B9F6B0065BD44 /* Espace_Payment.m */; };
-		EEA9C349151B9F6B0065BD44 /* Espace_Payment.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA9C347151B9F6B0065BD44 /* Espace_Payment.xib */; };
 		EEB4A3CB14EC190900F3BCBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB4A3CA14EC190900F3BCBE /* UIKit.framework */; };
 		EEB4A3CD14EC190900F3BCBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB4A3CC14EC190900F3BCBE /* Foundation.framework */; };
 		EEB4A3CF14EC190900F3BCBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB4A3CE14EC190900F3BCBE /* CoreGraphics.framework */; };
@@ -154,9 +152,6 @@
 		EEA22EB815253E9000B1FDA1 /* CellParking.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CellParking.xib; path = ../../ispark/ispark/CellParking.xib; sourceTree = "<group>"; };
 		EEA22EBA15253EA300B1FDA1 /* CellParking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellParking.h; path = ../../ispark/ispark/CellParking.h; sourceTree = "<group>"; };
 		EEA22EBB15253EA300B1FDA1 /* CellParking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellParking.m; path = ../../ispark/ispark/CellParking.m; sourceTree = "<group>"; };
-		EEA9C345151B9F6B0065BD44 /* Espace_Payment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Espace_Payment.h; path = ../../ispark/ispark/Espace_Payment.h; sourceTree = "<group>"; };
-		EEA9C346151B9F6B0065BD44 /* Espace_Payment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Espace_Payment.m; path = ../../ispark/ispark/Espace_Payment.m; sourceTree = "<group>"; };
-		EEA9C347151B9F6B0065BD44 /* Espace_Payment.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Espace_Payment.xib; path = ../../ispark/ispark/Espace_Payment.xib; sourceTree = "<group>"; };
 		EEB4A3C614EC190900F3BCBE /* ispark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ispark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB4A3CA14EC190900F3BCBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EEB4A3CC14EC190900F3BCBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -204,9 +199,6 @@
 				EE3B8B7D14EDDB130056B611 /* Liste_Park.h */,
 				EE3B8B7E14EDDB130056B611 /* Liste_Park.m */,
 				EE3B8B7F14EDDB130056B611 /* Liste_Park.xib */,
-				EEA9C345151B9F6B0065BD44 /* Espace_Payment.h */,
-				EEA9C346151B9F6B0065BD44 /* Espace_Payment.m */,
-				EEA9C347151B9F6B0065BD44 /* Espace_Payment.xib */,
 				EEA22EB815253E9000B1FDA1 /* CellParking.xib */,
 				EEA22EBA15253EA300B1FDA1 /* CellParking.h */,
 				EEA22EBB15253EA300B1FDA1 /* CellParking.m */,
@@ -532,7 +524,6 @@
 				EE6176AD14F502CE00372C72 /* Soyez_sur.png in Resources */,
 				EE6176C014F50FFC00372C72 /* icone.png in Resources */,
 				EEED3A0114FAD08600285605 /* ParkingMap.xib in Resources */,
-				EEA9C349151B9F6B0065BD44 /* Espace_Payment.xib in Resources */,
 				EEA22EB315252E6400B1FDA1 /* CellReservation.xib in Resources */,
 				EEA22EB915253E9000B1FDA1 /* CellParking.xib in Resources */,
 				EEC63CFE14B4647400206BE5 /* Login.xib in Resources */,
@@ -556,7 +547,6 @@
 				EE3B8B9214EE53390056B611 /* Info_Reservation.m in Sources */,
 				EE6176BA14F508C400372C72 /* AnnotationBonPlan.m in Sources */,
 				EEED3A0014FAD08600285605 /* ParkingMap.m in Sources */,
-				EEA9C348151B9F6B0065BD44 /* Espace_Payment.m in Sources */,
 				EEA22EB115252E4F00B1FDA1 /* CellReservation.m in Sources */,
 				EEA22EBC15253EA400B1FDA1 /* CellParking.m in Sources */,
 				EEC63CF814B45B4D00206BE5 /* _Utillisateur.m in Sources */,
