@@ -13,6 +13,8 @@
     NSMutableDictionary *dico;
     IBOutlet UIImageView *Qrcode;
     
+    IBOutlet UILabel *code;
+    IBOutlet UILabel *prix;
 }
 - (IBAction)annuler:(id)sender;
 -(void)setdico:(NSMutableDictionary*)d;

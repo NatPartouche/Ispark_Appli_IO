@@ -55,6 +55,7 @@
 {
     [super viewWillAppear:animated];
     self.title=@"Reservations";
+    self.navigationController.navigationBar.barStyle=UIBarStyleBlack;    
 
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
     reservation=[pref objectForKey:@"Reservations"];

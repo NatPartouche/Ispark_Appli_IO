@@ -37,15 +37,18 @@
     
     UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:list];
     nav.title=@"Les parkings";
+    
     Liste_Reservation *listres=[[Liste_Reservation alloc]init];
     listres.title=@"Les reservations";
-
     UINavigationController *navres=[[UINavigationController alloc]initWithRootViewController:listres ];
 
     ParkingMap *carte=[[ParkingMap alloc]initWithNibName:@"ParkingMap" bundle:nil];
-   carte.title=@"Carte des parkings";
+    carte.title=@"Carte des parkings";
     UINavigationController *navcarte=[[UINavigationController alloc]initWithRootViewController:carte ];
+    
+    
     UITabBarController *tab=[[UITabBarController alloc]init];
+    
     tab.viewControllers=[NSArray arrayWithObjects:nav,navres,navcarte, nil];
     [self.window addSubview:tab.view];
     

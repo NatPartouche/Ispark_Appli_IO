@@ -39,27 +39,20 @@
         NSMutableArray *reservation=[pref objectForKey:@"Reservations"];
         for (int i=0; i<[reservation count]; i++) {
             
-             
-            
-            NSDictionary *temp=[reservation objectAtIndex:i];
+        NSDictionary *temp=[reservation objectAtIndex:i];
                     
         if ([[temp objectForKey:@"idreservation"] isEqualToString:[dico objectForKey:@"idreservation"]])
         {
             [reservation removeObjectAtIndex:i];
-            UIAlertView *a=[[UIAlertView alloc]init];
-            [a show];
+           
         }
         
         }
-        
-        //[pref setObject:reservation forKey:@"reservation"];
         NSLog(@"save reservation");   
         [self.navigationController popViewControllerAnimated:YES];
 
     }
     
-    
-
 }
 
 -(void)setdico:(NSMutableDictionary*)d
@@ -71,11 +64,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title=@"Detail reservation";
+    self.navigationController.navigationBar.barStyle=UIBarStyleBlack;    
+
+    NSLog(@"%@",[dico description]);
+    code.text=[NSString stringWithFormat:@"code : %@",[dico objectForKey:@"code"]];
     
-    
-  //  NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost/API_ISPARK/Reservations/%@",[dico ]]];
- //   Qrcode=[UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-    
+    prix.text=[NSString stringWithFormat:@"%@ €",[dico objectForKey:@"prix"] ];
     Qrcode.image=[UIImage imageWithData:[dico objectForKey:@"Qrcode" ]];
     // Do any additional setup after loading the view from its nib.
 }
@@ -84,6 +79,10 @@
 {
     [Qrcode release];
     Qrcode = nil;
+    [prix release];
+    prix = nil;
+    [code release];
+    code = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -97,6 +96,8 @@
 
 - (void)dealloc {
     [Qrcode release];
+    [prix release];
+    [code release];
     [super dealloc];
 }
 @end

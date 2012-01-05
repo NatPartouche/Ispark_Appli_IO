@@ -16,7 +16,7 @@
     if ([super init])
     {
         
-
+        isok=0;
         reservation=[[NSMutableArray alloc]init];
         currentElement=[[NSMutableString alloc]init];
     }
@@ -94,7 +94,10 @@
     }
 }
 
-
+-(int)isok
+{
+    return isok;
+}
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {	
     
@@ -102,6 +105,7 @@
     
     if ([currentElement isEqualToString:@"Reservation"]) {      
         [reservation addObject:dico];
+        isok=1;
     }
    
     

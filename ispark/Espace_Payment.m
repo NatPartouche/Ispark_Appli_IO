@@ -47,10 +47,22 @@
     NSLog(@"%@",[tempo description]);
     _Reservations *res=[[_Reservations alloc]init];
     [res load:[dico objectForKey:@"idparking"] withtime:[NSString stringWithFormat:@"%d",temp] anduser:[NSString stringWithFormat:[tempo objectForKey:@"idutilisateur"]]];
-    [res loadQrcode];
-    [res save];
-    self.tabBarController.selectedIndex=1;
-}
+        if ([res isok]==1)
+    {
+        self.tabBarController.selectedIndex=1;
+        [res loadQrcode];
+        [res save];
+    }
+    else
+    {   
+        NSString *title=[NSString stringWithString:@"Reservation Impossible"];
+        NSString *message=[NSString stringWithFormat:@"La zone VIP du parking de %@ est momentanement indisponible, Reservez votre place dans un autre parking... A très bientôt!"];
+        UIAlertView *a=[[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [a show];
+        [a release];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    }
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad

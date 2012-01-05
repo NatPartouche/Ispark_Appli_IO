@@ -78,6 +78,7 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.barStyle=UIBarStyleBlack;    
 
     
     

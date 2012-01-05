@@ -14,6 +14,7 @@
     NSXMLParser *rssparser;
     NSMutableDictionary *dico;
     NSString *localhost;
+    int isok;
 }
 -(void)setIDparking:(NSString *)idparking;
 -(void)parseXMLFileAtURL:(NSString *)URL;
@@ -22,5 +23,6 @@
 -(void)load:(NSString*)idp withtime:(NSString*)temps anduser:(NSString*)user;
 -(void)loadQrcode;
 -(void)save;
+-(int)isok;
 
 @end

@@ -36,7 +36,8 @@
     [super viewDidLoad];
     self.tableView.rowHeight=63;
     self.title=@"Parkings";
-    
+    self.navigationController.navigationBar.barStyle=UIBarStyleBlack;    
+
     Login *l=[[Login alloc]init];
     [self presentModalViewController:l animated:YES];
     park=[[_Park alloc]init];
