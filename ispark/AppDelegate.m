@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "Liste_Park.h"
+#import "Liste_Reservation.h"
 
 @implementation AppDelegate
 
@@ -21,13 +22,30 @@
     [_viewController release];
     [super dealloc];
 }
-
+#import "ParkingMap.h"
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    
+    
+    
+    
+    
+    
+    Liste_Park *list=[[Liste_Park alloc]init];
+    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:list];
+    
+    Liste_Reservation *listres=[[Liste_Reservation alloc]init];
+    UINavigationController *navres=[[UINavigationController alloc]initWithRootViewController:listres ];
+
+    ParkingMap *carte=[[ParkingMap alloc]initWithNibName:@"ParkingMap" bundle:nil];
+    UINavigationController *navcarte=[[UINavigationController alloc]initWithRootViewController:carte ];
+    UITabBarController *tab=[[UITabBarController alloc]init];
+    tab.viewControllers=[NSArray arrayWithObjects:nav,navres,navcarte, nil];
+    [self.window addSubview:tab.view];
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
